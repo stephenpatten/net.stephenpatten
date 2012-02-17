@@ -1,0 +1,118 @@
+﻿@using Web.UI;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="language" content="en" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Site.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/themes/smoothness/jquery-ui-1.8.17.custom.css")"  />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/layout-default-latest.css")" />
+    <!-- CUSTOMIZE/OVERRIDE THE DEFAULT CSS -->
+    <style type="text/css">
+        /* remove padding and scrolling from elements that contain an Accordion OR a content-div */
+        .ui-layout-center, /* has content-div */ .ui-layout-west, /* has Accordion */ .ui-layout-east, /* has content-div ... */ .ui-layout-east .ui-layout-content
+        {
+            /* content-div has Accordion */
+            padding: 0;
+            overflow: hidden;
+        }
+        .ui-layout-center P.ui-layout-content
+        {
+            line-height: 1.4em;
+            margin: 0; /* remove top/bottom margins from <P> used as content-div */
+        }
+        h3, h4
+        {
+            /* Headers & Footer in Center & East panes */
+            font-size: 1.1em;
+            background: #EEF;
+            border: 1px solid #BBB;
+            border-width: 0 0 1px;
+            padding: 7px 10px;
+            margin: 0;
+        }
+        .ui-layout-east h4
+        {
+            /* Footer in East-pane */
+            font-size: 0.9em;
+            font-weight: normal;
+            border-width: 1px 0 0;
+        }
+    </style>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.17.custom.min.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.layout-latest.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.layout.resizePaneAccordions-1.0.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/themeswitchertool.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/debug.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            myLayout = $('body').layout({
+                west__size: 300,
+                west__onresize: $.layout.callbacks.resizePaneAccordions
+            });
+
+            // ACCORDION - in the West pane
+            $("#accordion").accordion({
+                fillSpace: true,
+                navigation: true,
+                active: 'h2.menu@(Html.Controller())'
+            });
+
+            // ACCORDION - in the East pane - in a 'content-div'
+            //$("#accordion2").accordion({ fillSpace: true, active: 1 });
+
+
+            // THEME SWITCHER
+            addThemeSwitcher('.ui-layout-north', { top: '12px', right: '5px' });
+            // if a new theme is applied, it could change the height of some content,
+            // so call resizeAll to 'correct' any header/footer heights affected
+            // NOTE: this is only necessary because we are changing CSS *AFTER LOADING* using themeSwitcher
+            setTimeout(myLayout.resizeAll, 1000); /* allow time for browser to re-render with new theme */
+
+        });
+    </script>
+</head>
+<body>
+    <div class="ui-layout-north ui-widget-content" style="display: none;">
+        <div style="float: right; margin-right: 160px;">
+            <button onclick="resizeWidgets()">
+                Resize</button>
+            &nbsp;
+            <button onclick="removeUITheme(); myLayout.resizeAll()">
+                Remove Theme</button>
+        </div>
+        North Pane
+    </div>
+    <div class="ui-layout-south ui-widget-content ui-state-error" style="display: none;">
+        <div id="statusMessage">Status: OK
+        </div>
+    </div>
+    <div class="ui-layout-center" style="display: none;">
+        <h3 class="ui-widget-header">
+            Center Pane</h3>
+        <div class="ui-layout-content ui-widget-content">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="ui-layout-west" style="display: none;">
+    <div id="accordion">
+        <h2 class='menuHome'><a href="#">Home</a></h2>
+            <ul class="menulist">
+                @Html.MenuItem("Welcome", "Index", "Home","selected")
+                @Html.MenuItem("LogOn", "LogOn", "Account","selected")
+                @Html.MenuItem("About", "About", "Home","selected")
+                @Html.MenuItem("Sitemap", "Sitemap", "Home", "selected")
+            </ul>
+        <h2 class='menuGrid'><a href="#">Grids</a></h2>
+            <ul class="menulist">
+                @Html.MenuItem("DataTables", "DataTable", "Grid","selected")
+                @Html.MenuItem("SlickGrid", "SlickGrid", "Grid", "selected")
+            </ul>
+    </div>
+    </div>
+</body>
+</html>
