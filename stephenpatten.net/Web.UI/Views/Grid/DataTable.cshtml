@@ -1,5 +1,46 @@
 ﻿@{
     ViewBag.Title = "DataTable";
 }
-
-<h2>DataTable</h2>
+<h2>
+    DataTable</h2>
+<link href="@Url.Content("~/Content/jquery.dataTables_themeroller.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" ></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $('#foodGroups').dataTable({
+            "bJQueryUI": true,
+            "bProcessing": true,
+            "bServerSide": false,
+            "sAjaxSource": "http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?",
+            "fnServerData": function (sUrl, aoData, fnCallback) {
+                $.ajax({
+                    "url": sUrl,
+                    "data": aoData,
+                    "success": fnCallback,
+                    "dataType": "jsonp",
+                    "cache": false
+                });
+            },
+            "aoColumns": [
+                            { "sName": "Id", "sTitle": "Id" },
+                            { "sName": "Description", "sTitle": "Description" }
+                         ]
+        });
+    });
+</script>
+<table id="foodGroups">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>
