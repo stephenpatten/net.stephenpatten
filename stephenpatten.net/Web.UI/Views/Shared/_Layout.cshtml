@@ -50,7 +50,7 @@
         $(document).ready(function () {
 
             myLayout = $('body').layout({
-                west__size: 300,
+                west__size: 200,
                 west__onresize: $.layout.callbacks.resizePaneAccordions
             });
 
@@ -58,6 +58,7 @@
             $("#accordion").accordion({
                 fillSpace: true,
                 navigation: true,
+                collapsible: false,
                 active: 'h2.menu@(Html.Controller())'
             });
 

@@ -1,14 +1,24 @@
 ﻿@{
     ViewBag.Title = "DataTable";
 }
-<h2>
-    DataTable</h2>
 <link href="@Url.Content("~/Content/jquery.dataTables_themeroller.css")" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" ></script>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
+        $('div.middle-center').layout({
+            center__paneSelector: ".inner-center",
+            west__paneSelector: ".inner-west",
+            west__size: 320,
+            spacing_open: 1,
+            spacing_closed: 1,
+            west__spacing_closed: 1
+        });
         $('#foodGroups').dataTable({
             "bJQueryUI": true,
+            "bInfo": false,
+            "bPaginate": false,
+            "bFilter": false,
+            "bSort": false,
             "bProcessing": true,
             "bServerSide": false,
             "sAjaxSource": "http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?",
@@ -22,25 +32,31 @@
                 });
             },
             "aoColumns": [
-                            { "sName": "Id", "sTitle": "Id" },
+                            { "sName": "Id", "sTitle": "Id", "bVisible": false },
                             { "sName": "Description", "sTitle": "Description" }
                          ]
         });
     });
 </script>
-<table id="foodGroups">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    <tfoot>
-    </tfoot>
-</table>
+<div class="middle-center" style="height: 100%">
+    <div class="inner-center">
+        Inner Center</div>
+    <div class="inner-west">
+        <table id="foodGroups">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</div>
