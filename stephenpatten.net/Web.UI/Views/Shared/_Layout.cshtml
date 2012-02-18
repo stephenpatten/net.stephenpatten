@@ -32,13 +32,6 @@
             padding: 7px 10px;
             margin: 0;
         }
-        .ui-layout-east h4
-        {
-            /* Footer in East-pane */
-            font-size: 0.9em;
-            font-weight: normal;
-            border-width: 1px 0 0;
-        }
     </style>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" ></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.17.custom.min.js")" ></script>
@@ -54,17 +47,12 @@
                 west__onresize: $.layout.callbacks.resizePaneAccordions
             });
 
-            // ACCORDION - in the West pane
             $("#accordion").accordion({
                 fillSpace: true,
                 navigation: true,
                 collapsible: false,
                 active: 'h2.menu@(Html.Controller())'
             });
-
-            // ACCORDION - in the East pane - in a 'content-div'
-            //$("#accordion2").accordion({ fillSpace: true, active: 1 });
-
 
             // THEME SWITCHER
             addThemeSwitcher('.ui-layout-north', { top: '12px', right: '5px' });
