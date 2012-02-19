@@ -18,8 +18,6 @@
             
             var items = [];
             
-            debugData(data, 'Food Groups', null);
-
             $.each(data.aaData, function (key, val) {
                 items.push('<li id="' + key + '" class="ui-widget-content">' + val + '</li>');
             });
