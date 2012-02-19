@@ -15,19 +15,19 @@
     $(document).ready(function () {
 
         $.getJSON('http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?', function (data) {
-            
-            var items = [];
-            
-            $.each(data.aaData, function (key, val) {
-                items.push('<li id="' + key + '" class="ui-widget-content">' + val + '</li>');
-            });
 
-            var elem = $('#results');
+            var items = [];
+
+            //debugData(val, 'Food Groups', null);
+
+            $.each(data.aaData, function (key, val) {
+                items.push('<li id="' + val[0] + '" class="ui-widget-content">' + val[1] + '</li>');
+            });
 
             $('<ol />', {
                 'id': 'foodGroups',
                 html: items.join('')
-            }).appendTo(elem);
+            }).appendTo($('#results'));
 
             $("#foodGroups").selectable();
 
