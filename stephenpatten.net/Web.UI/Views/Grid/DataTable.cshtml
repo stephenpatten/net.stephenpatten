@@ -3,60 +3,62 @@
 }
 <link href="@Url.Content("~/Content/jquery.dataTables_themeroller.css")" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" ></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/debug.js")" ></script>
+<style>
+	#feedback { font-size: 1.4em; }
+    #foodGroups .ui-selecting { background: #FECA40; }
+	#foodGroups .ui-selected { background: #F39814; color: white; }
+	#foodGroups { list-style-type: none; margin: 0; padding: 0; width: 40%; }
+	#foodGroups li { margin: 3px; padding: 0.4em; font-size: -1.5em; height: 18px; }
+</style>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
-        $('div.middle-center').layout({
-            center__paneSelector: ".inner-center",
-            west__paneSelector: ".inner-west",
-            west__size: 320,
-            spacing_open: 1,
-            spacing_closed: 1,
-            west__spacing_closed: 1
+
+        $.getJSON('http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?', function (data) {
+            
+            var items = [];
+            
+            debugData(data, 'Food Groups', null);
+
+            $.each(data.aaData, function (key, val) {
+                items.push('<li id="' + key + '" class="ui-widget-content">' + val + '</li>');
+            });
+
+            var elem = $('#results');
+
+            $('<ol />', {
+                'id': 'foodGroups',
+                html: items.join('')
+            }).appendTo(elem);
+
+            $("#foodGroups").selectable();
+
         });
-        $('#foodGroups').dataTable({
-            "bJQueryUI": true,
-            "bInfo": false,
-            "bPaginate": false,
-            "bFilter": false,
-            "bSort": false,
-            "bProcessing": true,
-            "bServerSide": false,
-            "sAjaxSource": "http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?",
-            "fnServerData": function (sUrl, aoData, fnCallback) {
-                $.ajax({
-                    "url": sUrl,
-                    "data": aoData,
-                    "success": fnCallback,
-                    "dataType": "jsonp",
-                    "cache": false
-                });
-            },
-            "aoColumns": [
-                            { "sName": "Id", "sTitle": "Id", "bVisible": false },
-                            { "sName": "Description", "sTitle": "Description" }
-                         ]
-        });
+
+
+        //        $('#foodGroups').dataTable({
+        //            "bJQueryUI": true,
+        //            "bInfo": false,
+        //            "bPaginate": false,
+        //            "bFilter": false,
+        //            "bSort": false,
+        //            "bProcessing": true,
+        //            "bServerSide": false,
+        //            "sAjaxSource": "http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?",
+        //            "fnServerData": function (sUrl, aoData, fnCallback) {
+        //                $.ajax({
+        //                    "url": sUrl,
+        //                    "data": aoData,
+        //                    "success": fnCallback,
+        //                    "dataType": "jsonp",
+        //                    "cache": false
+        //                });
+        //            },
+        //            "aoColumns": [
+        //                            { "sName": "Id", "sTitle": "Id", "bVisible": false },
+        //                            { "sName": "Description", "sTitle": "Description" }
+        //                         ]
+        //        });
     });
 </script>
-<div class="middle-center" style="height: 100%">
-    <div class="inner-center">
-        Inner Center</div>
-    <div class="inner-west">
-        <table id="foodGroups">
-            <thead>
-                <tr>
-                    <th>
-                        Id
-                    </th>
-                    <th>
-                        Description
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tfoot>
-            </tfoot>
-        </table>
-    </div>
-</div>
+<div id="results"></div>
