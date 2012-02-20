@@ -116,7 +116,7 @@
                 "bLengthChange": false,
                 "bFilter": true,
                 "bSort": true,
-                "bInfo": false,
+                "bInfo": true,
                 "bAutoWidth": true,
                 "asStripClasses": null,
                 "sScrollY": "400",
@@ -130,6 +130,9 @@
                         for (var i = 0; i < selectedArray.length; i++) {
                             aoData.push({ "name": "id", "value": selectedArray[i].id });
                         }
+                    }
+                    else {
+                        aoData.push({ "name": "id", "value": "0100" });
                     }
                 },
                 "fnServerData": function (sUrl, aoData, fnCallback) {
