@@ -107,12 +107,7 @@
                 html: items.join('')
             }).appendTo($('#results'));
 
-            $("#foodGroups").selectable({
-                stop: function () {
-                    selectedArray = $(".ui-selected", this);
-//                    oTable.fnReloadAjax();
-                }
-            });
+            $("#foodGroups").selectable();
 
             selectSelectableElement(jQuery("#foodGroups"), jQuery("#foodGroups").children(":eq(0)"));
 
@@ -131,8 +126,11 @@
                 "bProcessing": true,
                 "sAjaxSource": "http://serviceendpoint.apphb.com/FoodDescriptions/GetByFG.jsonp?callback=?",
                 "fnServerParams": function (aoData) {
-                    console.log("fnServerParams");
-                    aoData.push({ "name": "id", "value": "0100" });
+                    if (selectedArray != undefined) {
+                        for (var i = 0; i < selectedArray.length; i++) {
+                            aoData.push({ "name": "id", "value": selectedArray[i].id });
+                        }
+                    }
                 },
                 "fnServerData": function (sUrl, aoData, fnCallback) {
                     $.ajax({
@@ -161,6 +159,11 @@
                                 { "sName": "Fat_Factor" },
                                 { "sName": "CHO_Factor" }
                              ]
+            });
+
+            $("#foodGroups").on("selectablestop", function (event, ui) {
+                selectedArray = $(".ui-selected", this);
+                oTable.fnReloadAjax();
             });
 
             $.unblockUI();

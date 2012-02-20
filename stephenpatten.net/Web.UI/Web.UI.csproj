@@ -80,6 +80,7 @@
     <Compile Include="ViewModel\jQueryDataTableParamModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\busy.gif" />
     <Content Include="Content\jquery.dataTables_themeroller.css" />
     <Content Include="Content\layout-default-latest.css" />
     <Content Include="Content\Site.css" />
@@ -163,13 +164,9 @@
     <Content Include="Scripts\jquery-ui-1.8.17.js" />
     <Content Include="Scripts\jquery-ui-1.8.17.min.js" />
     <Content Include="Scripts\jquery.blockUI.js" />
-    <Content Include="Scripts\jquery.center.js" />
-    <Content Include="Scripts\jquery.center.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.layout-latest.js" />
     <Content Include="Scripts\jquery.layout.resizePaneAccordions-1.0.js" />
-    <Content Include="Scripts\jquery.msg.js" />
-    <Content Include="Scripts\jquery.msg.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
