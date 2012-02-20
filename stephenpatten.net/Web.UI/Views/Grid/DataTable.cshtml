@@ -5,11 +5,45 @@
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" ></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/debug.js")" ></script>
 <style>
-	#feedback { font-size: 1.4em; }
-    #foodGroups .ui-selecting { background: #FECA40; }
-	#foodGroups .ui-selected { background: #F39814; color: white; }
-	#foodGroups { list-style-type: none; margin: 0; padding: 0; width: 40%; }
-	#foodGroups li { margin: 3px; padding: 0.4em; font-size: -1.5em; height: 18px; }
+    div.left
+    {
+        width: 20%;
+        float: left;
+    }
+    div.right
+    {
+        width: 80%;
+        float: right;
+    }
+    div.container
+    {
+        border: 1px solid #000000;
+        overflow: hidden;
+        width: 100%;
+    }
+    #foodGroups .ui-selecting
+    {
+        background: #FECA40;
+    }
+    #foodGroups .ui-selected
+    {
+        background: #F39814;
+        color: white;
+    }
+    #foodGroups
+    {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 350px;
+    }
+    #foodGroups li
+    {
+        margin: 3px;
+        padding: 0.4em;
+        font-size: -1.5em;
+        height: 18px;
+    }
 </style>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
@@ -27,10 +61,57 @@
                 html: items.join('')
             }).appendTo($('#results'));
 
-            $("#foodGroups").selectable();
+            $("#foodGroups").selectable({
+                stop: function () {
+                    var selectedArray = $(".ui-selected", this);
+
+                }
+            });
 
         });
 
+        var oTable = $('#foodDesc').dataTable({
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "asStripClasses": null,
+            "sScrollY": "1px",
+            "sScrollX": "400",
+            "bScrollCollapse": false,
+            "bJQueryUI": true,
+            "bProcessing": true,
+            "sAjaxSource": "http://serviceendpoint.apphb.com/FoodDescriptions/GetByFG.jsonp?callback=?",
+            "fnServerData": function (sUrl, aoData, fnCallback) {
+                $.ajax({
+                    "url": sUrl,
+                    "data": aoData,
+                    "success": fnCallback,
+                    "dataType": "jsonp",
+                    "cache": false
+                });
+            },
+            "bDeferRender": true,
+            "bStateSave": true,
+            "aoColumns": [
+                                { "sName": "NDB_No", "sTitle": "Id" },
+                                { "sName": "FdGrp_Cd", "sTitle": "FoodGroupId" },
+                                { "sName": "Long_Desc", "sTitle": "Long Description" },
+                                { "sName": "Shrt_Desc", "sTitle": "Short Description" },
+                                { "sName": "ComName" },
+                                { "sName": "ManufacName" },
+                                { "sName": "Survey" },
+                                { "sName": "Ref_Desc" },
+                                { "sName": "Refuse" },
+                                { "sName": "SciName" },
+                                { "sName": "N_Factor" },
+                                { "sName": "Pro_Factor" },
+                                { "sName": "Fat_Factor" },
+                                { "sName": "CHO_Factor" }
+                            ]
+        });
 
         //        $('#foodGroups').dataTable({
         //            "bJQueryUI": true,
@@ -57,4 +138,63 @@
         //        });
     });
 </script>
-<div id="results"></div>
+<div class="container">
+    <div class="left">
+        <div id="results">
+        </div>
+    </div>
+    <div class="right">
+        <table id="foodDesc">
+            <thead>
+                <tr>
+                    <th>
+                        NDB_No
+                    </th>
+                    <th>
+                        FdGrp_Cd
+                    </th>
+                    <th>
+                        Long_Desc
+                    </th>
+                    <th>
+                        Shrt_Desc
+                    </th>
+                    <th>
+                        ComName
+                    </th>
+                    <th>
+                        ManufacName
+                    </th>
+                    <th>
+                        Survey
+                    </th>
+                    <th>
+                        Ref_Desc
+                    </th>
+                    <th>
+                        Refuse
+                    </th>
+                    <th>
+                        SciName
+                    </th>
+                    <th>
+                        N_Factor
+                    </th>
+                    <th>
+                        Pro_Factor
+                    </th>
+                    <th>
+                        Fat_Factor
+                    </th>
+                    <th>
+                        CHO_Factor
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</div>
