@@ -34,6 +34,61 @@
     }
 </style>
 <script type="text/javascript" charset="utf-8">
+    function selectSelectableElement(selectableContainer, elementToSelect) {
+        // add unselecting class to all elements in the styleboard canvas except current one
+        jQuery("li", selectableContainer).each(function () {
+            if (this != elementToSelect[0])
+                jQuery(this).removeClass("ui-selected").addClass("ui-unselecting");
+        });
+
+        // add ui-selecting class to the element to select
+        elementToSelect.addClass("ui-selecting");
+
+        // trigger the mouse stop event (this will select all .ui-selecting elements, and deselect all .ui-unselecting elements)
+        selectableContainer.data("selectable")._mouseStop(null);
+    }
+
+    $.fn.dataTableExt.oApi.fnReloadAjax = function (oSettings, sNewSource, fnCallback, bStandingRedraw) {
+        if (typeof sNewSource != 'undefined' && sNewSource != null) {
+            oSettings.sAjaxSource = sNewSource;
+        }
+        this.oApi._fnProcessingDisplay(oSettings, true);
+        var that = this;
+        var iStart = oSettings._iDisplayStart;
+        var aData = [];
+
+        this.oApi._fnServerParams(oSettings, aData);
+
+        oSettings.fnServerData(oSettings.sAjaxSource, aData, function (json) {
+            /* Clear the old information from the table */
+            that.oApi._fnClearTable(oSettings);
+
+            /* Got the data - add it to the table */
+            var aData = (oSettings.sAjaxDataProp !== "") ?
+            that.oApi._fnGetObjectDataFn(oSettings.sAjaxDataProp)(json) : json;
+
+            for (var i = 0; i < aData.length; i++) {
+                that.oApi._fnAddData(oSettings, aData[i]);
+            }
+
+            oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
+            that.fnDraw();
+
+            if (typeof bStandingRedraw != 'undefined' && bStandingRedraw === true) {
+                oSettings._iDisplayStart = iStart;
+                that.fnDraw(false);
+            }
+
+            that.oApi._fnProcessingDisplay(oSettings, false);
+
+            /* Callback user function - for event handlers etc */
+            if (typeof fnCallback == 'function' && fnCallback != null) {
+                fnCallback(oSettings);
+            }
+        }, oSettings);
+    }
+
+    var selectedArray;
     var oTable;
     $(document).ready(function () {
 
@@ -54,10 +109,12 @@
 
             $("#foodGroups").selectable({
                 stop: function () {
-                    var selectedArray = $(".ui-selected", this);
-
+                    selectedArray = $(".ui-selected", this);
+//                    oTable.fnReloadAjax();
                 }
             });
+
+            selectSelectableElement(jQuery("#foodGroups"), jQuery("#foodGroups").children(":eq(0)"));
 
             oTable = $('#foodDesc').dataTable({
                 "bPaginate": false,
@@ -67,12 +124,16 @@
                 "bInfo": false,
                 "bAutoWidth": true,
                 "asStripClasses": null,
-                "sScrollY": "1px",
+                "sScrollY": "400",
                 "sScrollX": "400",
                 "bScrollCollapse": false,
                 "bJQueryUI": true,
                 "bProcessing": true,
                 "sAjaxSource": "http://serviceendpoint.apphb.com/FoodDescriptions/GetByFG.jsonp?callback=?",
+                "fnServerParams": function (aoData) {
+                    console.log("fnServerParams");
+                    aoData.push({ "name": "id", "value": "0100" });
+                },
                 "fnServerData": function (sUrl, aoData, fnCallback) {
                     $.ajax({
                         "url": sUrl,
