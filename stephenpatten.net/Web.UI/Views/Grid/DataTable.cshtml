@@ -3,24 +3,9 @@
 }
 <link href="@Url.Content("~/Content/jquery.dataTables_themeroller.css")" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.min.js")" ></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.blockUI.js")" ></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/debug.js")" ></script>
 <style>
-    div.left
-    {
-        width: 20%;
-        float: left;
-    }
-    div.right
-    {
-        width: 80%;
-        float: right;
-    }
-    div.container
-    {
-        border: 1px solid #000000;
-        overflow: hidden;
-        width: 100%;
-    }
     #foodGroups .ui-selecting
     {
         background: #FECA40;
@@ -35,18 +20,23 @@
         list-style-type: none;
         margin: 0;
         padding: 0;
-        width: 350px;
     }
     #foodGroups li
     {
         margin: 3px;
-        padding: 0.4em;
+        padding: 1px;
+        float: left;
+        width: 300px;
+        height: 50px;
         font-size: -1.5em;
-        height: 18px;
+        text-align: left;
     }
 </style>
 <script type="text/javascript" charset="utf-8">
+    var oTable;
     $(document).ready(function () {
+
+        $.blockUI({ message: '<h3><img src="../../../../Content/images/busy.gif" /> Processing remote call...</h3>' });
 
         $.getJSON('http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?', function (data) {
 
@@ -68,34 +58,32 @@
                 }
             });
 
-        });
-
-        var oTable = $('#foodDesc').dataTable({
-            "bPaginate": false,
-            "bLengthChange": false,
-            "bFilter": true,
-            "bSort": true,
-            "bInfo": false,
-            "bAutoWidth": false,
-            "asStripClasses": null,
-            "sScrollY": "1px",
-            "sScrollX": "400",
-            "bScrollCollapse": false,
-            "bJQueryUI": true,
-            "bProcessing": true,
-            "sAjaxSource": "http://serviceendpoint.apphb.com/FoodDescriptions/GetByFG.jsonp?callback=?",
-            "fnServerData": function (sUrl, aoData, fnCallback) {
-                $.ajax({
-                    "url": sUrl,
-                    "data": aoData,
-                    "success": fnCallback,
-                    "dataType": "jsonp",
-                    "cache": false
-                });
-            },
-            "bDeferRender": true,
-            "bStateSave": true,
-            "aoColumns": [
+            oTable = $('#foodDesc').dataTable({
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bSort": true,
+                "bInfo": false,
+                "bAutoWidth": true,
+                "asStripClasses": null,
+                "sScrollY": "1px",
+                "sScrollX": "400",
+                "bScrollCollapse": false,
+                "bJQueryUI": true,
+                "bProcessing": true,
+                "sAjaxSource": "http://serviceendpoint.apphb.com/FoodDescriptions/GetByFG.jsonp?callback=?",
+                "fnServerData": function (sUrl, aoData, fnCallback) {
+                    $.ajax({
+                        "url": sUrl,
+                        "data": aoData,
+                        "success": fnCallback,
+                        "dataType": "jsonp",
+                        "cache": false
+                    });
+                },
+                "bDeferRender": true,
+                "bStateSave": true,
+                "aoColumns": [
                                 { "sName": "NDB_No", "sTitle": "Id" },
                                 { "sName": "FdGrp_Cd", "sTitle": "FoodGroupId" },
                                 { "sName": "Long_Desc", "sTitle": "Long Description" },
@@ -110,91 +98,68 @@
                                 { "sName": "Pro_Factor" },
                                 { "sName": "Fat_Factor" },
                                 { "sName": "CHO_Factor" }
-                            ]
-        });
+                             ]
+            });
 
-        //        $('#foodGroups').dataTable({
-        //            "bJQueryUI": true,
-        //            "bInfo": false,
-        //            "bPaginate": false,
-        //            "bFilter": false,
-        //            "bSort": false,
-        //            "bProcessing": true,
-        //            "bServerSide": false,
-        //            "sAjaxSource": "http://serviceendpoint.apphb.com/FoodGroups/GetAll.jsonp?callback=?",
-        //            "fnServerData": function (sUrl, aoData, fnCallback) {
-        //                $.ajax({
-        //                    "url": sUrl,
-        //                    "data": aoData,
-        //                    "success": fnCallback,
-        //                    "dataType": "jsonp",
-        //                    "cache": false
-        //                });
-        //            },
-        //            "aoColumns": [
-        //                            { "sName": "Id", "sTitle": "Id", "bVisible": false },
-        //                            { "sName": "Description", "sTitle": "Description" }
-        //                         ]
-        //        });
+            $.unblockUI();
+        });
     });
 </script>
-<div class="container">
-    <div class="left">
-        <div id="results">
-        </div>
+<div class="left">
+    <div id="results">
     </div>
-    <div class="right">
-        <table id="foodDesc">
-            <thead>
-                <tr>
-                    <th>
-                        NDB_No
-                    </th>
-                    <th>
-                        FdGrp_Cd
-                    </th>
-                    <th>
-                        Long_Desc
-                    </th>
-                    <th>
-                        Shrt_Desc
-                    </th>
-                    <th>
-                        ComName
-                    </th>
-                    <th>
-                        ManufacName
-                    </th>
-                    <th>
-                        Survey
-                    </th>
-                    <th>
-                        Ref_Desc
-                    </th>
-                    <th>
-                        Refuse
-                    </th>
-                    <th>
-                        SciName
-                    </th>
-                    <th>
-                        N_Factor
-                    </th>
-                    <th>
-                        Pro_Factor
-                    </th>
-                    <th>
-                        Fat_Factor
-                    </th>
-                    <th>
-                        CHO_Factor
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tfoot>
-            </tfoot>
-        </table>
-    </div>
+</div>
+<div class="right">
+    <table id="foodDesc">
+        <thead>
+            <tr>
+                <th>
+                    NDB_No
+                </th>
+                <th>
+                    FdGrp_Cd
+                </th>
+                <th>
+                    Long_Desc
+                </th>
+                <th>
+                    Shrt_Desc
+                </th>
+                <th>
+                    ComName
+                </th>
+                <th>
+                    ManufacName
+                </th>
+                <th>
+                    Survey
+                </th>
+                <th>
+                    Ref_Desc
+                </th>
+                <th>
+                    Refuse
+                </th>
+                <th>
+                    SciName
+                </th>
+                <th>
+                    N_Factor
+                </th>
+                <th>
+                    Pro_Factor
+                </th>
+                <th>
+                    Fat_Factor
+                </th>
+                <th>
+                    CHO_Factor
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
 </div>
