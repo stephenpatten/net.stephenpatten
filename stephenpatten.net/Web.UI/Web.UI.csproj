@@ -67,6 +67,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\BootstrapLite\BootstrapLiteAreaRegistration.cs" />
+    <Compile Include="Areas\BootstrapLite\Controllers\SteppingOutController.cs" />
     <Compile Include="Controllers\DataTableController.cs" />
     <Compile Include="Controllers\GridController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -80,6 +82,14 @@
     <Compile Include="ViewModel\jQueryDataTableParamModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\BootstrapLite\Content\bootstrap-responsive.css" />
+    <Content Include="Areas\BootstrapLite\Content\bootstrap-responsive.min.css" />
+    <Content Include="Areas\BootstrapLite\Content\bootstrap.css" />
+    <Content Include="Areas\BootstrapLite\Content\bootstrap.min.css" />
+    <Content Include="Areas\BootstrapLite\Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Areas\BootstrapLite\Content\img\glyphicons-halflings.png" />
+    <Content Include="Areas\BootstrapLite\Scripts\bootstrap.js" />
+    <Content Include="Areas\BootstrapLite\Scripts\bootstrap.min.js" />
     <Content Include="Content\images\busy.gif" />
     <Content Include="Content\jquery.dataTables_themeroller.css" />
     <Content Include="Content\layout-default-latest.css" />
@@ -203,6 +213,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\DataTable\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\BootstrapLite\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BootstrapLite\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BootstrapLite\Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BootstrapLite\Views\SteppingOut\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

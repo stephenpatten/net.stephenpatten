@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>_Layout</title>
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/BootstrapLite/Content/bootstrap.css")" />
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Areas/BootstrapLite/Content/bootstrap-responsive.css")" />
+</head>
+<body>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Areas/BootstrapLite/Scripts/bootstrap.js")"></script>
+</body>
+</html>
