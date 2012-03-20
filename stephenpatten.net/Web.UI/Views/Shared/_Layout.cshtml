@@ -76,31 +76,39 @@
         Logo
     </div>
     <div class="ui-layout-south ui-widget-content ui-state-error" style="display: none;">
-        <div id="statusMessage">Status: OK
+        <div id="statusMessage">
+            Status: OK
         </div>
     </div>
     <div class="ui-layout-center" style="display: none;">
         <h3 class="ui-widget-header">
-           Content</h3>
+            Content</h3>
         <div class="ui-layout-content ui-widget-content">
             @RenderBody()
         </div>
     </div>
     <div class="ui-layout-west" style="display: none;">
-    <div id="accordion">
-        <h2 class='menuHome'><a href="#">Home</a></h2>
+        <div id="accordion">
+            <h2 class='menuHome'>
+                <a href="#">Home</a></h2>
             <ul class="menulist">
-                @Html.MenuItem("Welcome", "Index", "Home","selected")
-                @Html.MenuItem("LogOn", "LogOn", "Account","selected")
-                @Html.MenuItem("About", "About", "Home","selected")
+                @Html.MenuItem("Welcome", "Index", "Home", "selected")
+                @Html.MenuItem("LogOn", "LogOn", "Account", "selected")
+                @Html.MenuItem("About", "About", "Home", "selected")
                 @Html.MenuItem("Sitemap", "Sitemap", "Home", "selected")
             </ul>
-        <h2 class='menuGrid'><a href="#">Grids</a></h2>
+            <h2 class='menuGrid'>
+                <a href="#">Grids</a></h2>
             <ul class="menulist">
-                @Html.MenuItem("DataTables", "DataTable", "Grid","selected")
+                @Html.MenuItem("DataTables", "DataTable", "Grid", "selected")
                 @Html.MenuItem("SlickGrid", "SlickGrid", "Grid", "selected")
             </ul>
-    </div>
+            <h2 class='menuMisc'>
+                <a href="#">Misc</a></h2>
+            <ul class="menulist">
+                @Html.MenuItem("BootStrap", "Index", "SteppingOut", new { area = "BootstrapLite" }, "selected")
+            </ul>
+        </div>
     </div>
 </body>
 </html>

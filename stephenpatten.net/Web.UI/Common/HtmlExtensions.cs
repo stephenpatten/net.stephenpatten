@@ -12,16 +12,22 @@ namespace Web.UI
 
         private const string SelectedAttribute = " selected='selected'";
 
-        public static MvcHtmlString Controller(this HtmlHelper helper)
+        public static MvcHtmlString Controller(this HtmlHelper htmlHelper)
         {
-            return MvcHtmlString.Create((string)helper.ViewContext.RouteData.Values["controller"]);
+            return MvcHtmlString.Create((string)htmlHelper.ViewContext.RouteData.Values["controller"]);
         }
 
-        public static MvcHtmlString MenuItem(this HtmlHelper helper, string linkText,
-                            string actionName, string controllerName, string selectedClass, bool controllerDesplay)
+        public static MvcHtmlString MenuItem(this HtmlHelper htmlHelper, string linkText, string actionName, string controllerName, 
+            object routeValues, string selectedClass)
         {
-            string currentControllerName = (string)helper.ViewContext.RouteData.Values["controller"];
-            string currentActionName = (string)helper.ViewContext.RouteData.Values["action"];
+            return MenuItem(htmlHelper, linkText, actionName, controllerName, routeValues, null, selectedClass, false);
+        }
+
+        public static MvcHtmlString MenuItem(this HtmlHelper htmlHelper, string linkText, string actionName, 
+            string controllerName, object routeValues, object htmlAttributes, string selectedClass, bool controllerDesplay)
+        {
+            string currentControllerName = (string)htmlHelper.ViewContext.RouteData.Values["controller"];
+            string currentActionName = (string)htmlHelper.ViewContext.RouteData.Values["action"];
 
             var builder = new TagBuilder("li");
             if (controllerDesplay)
@@ -36,27 +42,26 @@ namespace Web.UI
                     builder.AddCssClass(selectedClass);
             }
 
-            builder.InnerHtml = LinkExtensions.ActionLink(helper, linkText, actionName, controllerName).ToHtmlString();
+            builder.InnerHtml = LinkExtensions.ActionLink(htmlHelper, linkText, actionName, controllerName, routeValues, htmlAttributes).ToHtmlString();
             return MvcHtmlString.Create(builder.ToString(TagRenderMode.Normal));
         }
 
-        public static MvcHtmlString MenuItem(this HtmlHelper helper, string linkText,
-                                  string actionName, string controllerName, string selectedClass)
+        public static MvcHtmlString MenuItem(this HtmlHelper htmlHelper, string linkText, string actionName, string controllerName, string selectedClass)
         {
-            return MenuItem(helper, linkText, actionName, controllerName, selectedClass, false);
+            return MenuItem(htmlHelper, linkText, actionName, controllerName, selectedClass, null, null, false);
         }
 
-        public static MvcHtmlString NbspIfEmpty(this HtmlHelper helper, string value)
+        public static MvcHtmlString NbspIfEmpty(this HtmlHelper htmlHelper, string value)
         {
             return new MvcHtmlString(string.IsNullOrEmpty(value) ? Nbsp : value);
         }
 
-        public static MvcHtmlString SelectedIfMatch(this HtmlHelper helper, object expected, object actual)
+        public static MvcHtmlString SelectedIfMatch(this HtmlHelper htmlHelper, object expected, object actual)
         {
             return new MvcHtmlString(Equals(expected, actual) ? SelectedAttribute : string.Empty);
         }
 
-        public static string Truncate(this HtmlHelper helper, string input, int length)
+        public static string Truncate(this HtmlHelper htmlHelper, string input, int length)
         {
             if (input.Length <= length)
             {
