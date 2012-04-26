@@ -33,13 +33,16 @@
             margin: 0;
         }
     </style>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" ></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.18.custom.min.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.18.js")" ></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.layout-latest.js")" ></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.layout.resizePaneAccordions-1.0.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/themeswitchertool.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/debug.js")"></script>
     <script type="text/javascript">
+        
+        var myLayout;
+        
         $(document).ready(function () {
 
             myLayout = $('body').layout({
@@ -61,7 +64,8 @@
             // NOTE: this is only necessary because we are changing CSS *AFTER LOADING* using themeSwitcher
             setTimeout(myLayout.resizeAll, 1000); /* allow time for browser to re-render with new theme */
 
-        });
+        });
+
     </script>
 </head>
 <body>

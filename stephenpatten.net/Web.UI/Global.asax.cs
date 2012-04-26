@@ -1,9 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Raven.Client;
+using Raven.Client.Document;
+using Raven.Client.Embedded;
+using Raven.Client.Indexes;
+using Raven.Client.MvcIntegration;
+using Web.UI.Controllers;
+using Web.UI.Infrastructure.Indexes;
 
 namespace Web.UI
 {
@@ -12,6 +21,40 @@ namespace Web.UI
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static IDocumentStore DocumentStore { get; private set; }
+
+        private static void InitializeDocumentStore()
+        {
+            if (DocumentStore != null) return; // prevent misuse
+
+            DocumentStore = new EmbeddableDocumentStore
+            {
+                ConnectionStringName = "RavenDB"
+            }.Initialize();
+
+            TryCreatingIndexesOrRedirectToErrorPage();
+        }
+
+        public MvcApplication()
+        {
+            BeginRequest += (sender, args) =>
+            {
+                HttpContext.Current.Items["CurrentRequestRavenSession"] = RavenController.DocumentStore.OpenSession();
+            };
+            EndRequest += (sender, args) =>
+            {
+                using (var session = (IDocumentSession)HttpContext.Current.Items["CurrentRequestRavenSession"])
+                {
+                    if (session == null)
+                        return;
+
+                    if (Server.GetLastError() != null)
+                        return;
+
+                    session.SaveChanges();
+                }
+            };
+        }
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -34,7 +77,17 @@ namespace Web.UI
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
+
+            InitializeDocumentStore();
+
             RegisterRoutes(RouteTable.Routes);
+
+            RavenController.DocumentStore = DocumentStore;
+        }
+
+        private static void TryCreatingIndexesOrRedirectToErrorPage()
+        {
+            IndexCreation.CreateIndexes(typeof(Products_Index).Assembly, DocumentStore);
         }
     }
 }

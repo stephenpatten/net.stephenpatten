@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="8178D699-2229-48B2-8237-7CF56909A826" ModuleId="Web.UI" />
+  <Module PersistentId="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593" ModuleId="Raven.Client.Lightweight" />
+</Modules>

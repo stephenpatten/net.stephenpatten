@@ -1,0 +1,1 @@
+﻿D:\code\net.stephenpatten\stephenpatten.net\packages\RavenDB-Embedded.1.0.910-Unstable\lib\net40\Raven.Client.Lightweight.dll
