@@ -129,7 +129,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Common\HtmlExtensions.cs" />
-    <Compile Include="Infrastructure\Attributes\Class1.cs" />
+    <Compile Include="Infrastructure\Attributes\JsonpFilterAttribute.cs" />
     <Compile Include="Infrastructure\Common\QueryableExtensions.cs" />
     <Compile Include="Infrastructure\Indexes\Products_Index.cs" />
     <Compile Include="Models\FoodDescription.cs" />
@@ -197,6 +197,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\cbeckBox.dataTables.js" />
     <Content Include="Scripts\debug.js" />
+    <Content Include="Scripts\excanvas.min.js" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />

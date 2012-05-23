@@ -1,6 +1,5 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Extensions/f:XmlResult.cs" caret="230" fromTop="10" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Indexes/f:Products_Index.cs" caret="774" fromTop="15" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Models/f:Product.cs" caret="1433" fromTop="57" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/f:Web.config" caret="2203" fromTop="48" />
@@ -8,46 +7,52 @@
     <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:DataTableController.cs" caret="0" fromTop="0" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/f:Global.asax.cs" caret="974" fromTop="25" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Shared/f:_Layout.cshtml" caret="0" fromTop="0" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/d:ViewModel/f:jQueryDataTableParamModel.cs" caret="480" fromTop="13" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Common/f:QueryableExtensions.cs" caret="439" fromTop="13" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="240" fromTop="9" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:RavenController.cs" caret="586" fromTop="18" />
     <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:DataTable.cshtml" caret="1357" fromTop="15" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="2311" fromTop="18" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:ViewModel/f:SlickGridParamModel.cs" caret="329" fromTop="12" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1295" fromTop="9" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:ViewModel/f:SlickGridParamModel.cs" caret="341" fromTop="14" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Common/f:QueryableExtensions.cs" caret="222" fromTop="9" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Shared/f:_Layout.cshtml" caret="2095" fromTop="7" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:jquery.jsonp-2.3.0.min.js" caret="64" fromTop="1" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Extensions/f:XmlResult.cs" caret="184" fromTop="2" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Extensions/f:JsonpResult.cs" caret="1185" fromTop="11" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:jquery.event.drop-2.0.js" caret="0" fromTop="0" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:jquery.event.drag-2.0.js" caret="0" fromTop="0" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="2687" fromTop="87" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Attributes/f:JsonpFilterAttribute.cs" caret="215" fromTop="9" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="3004" fromTop="25" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="466" fromTop="0" />
   </RecentFiles>
   <RecentEdits>
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Indexes/f:Products_Index.cs" caret="299" fromTop="11" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Indexes/f:Products_Index.cs" caret="299" fromTop="12" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Indexes/f:Products_Index.cs" caret="1368" fromTop="29" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Models/f:Product.cs" caret="4060" fromTop="29" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Models/f:Product.cs" caret="89" fromTop="7" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Models/f:Product.cs" caret="4060" fromTop="110" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Models/f:Product.cs" caret="13" fromTop="0" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Models/f:Product.cs" caret="3838" fromTop="5" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Models/f:Product.cs" caret="1381" fromTop="12" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/f:Global.asax.cs" caret="2804" fromTop="15" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/f:connString.config" caret="113" fromTop="2" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/f:Global.asax.cs" caret="2646" fromTop="27" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="786" fromTop="17" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="222" fromTop="7" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="868" fromTop="9" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="884" fromTop="10" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="734" fromTop="26" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Common/f:QueryableExtensions.cs" caret="152" fromTop="7" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Common/f:QueryableExtensions.cs" caret="450" fromTop="14" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="884" fromTop="20" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="240" fromTop="9" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="4652" fromTop="24" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="2932" fromTop="15" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="1864" fromTop="7" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="893" fromTop="4" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="3090" fromTop="26" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="2065" fromTop="11" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:ViewModel/f:SlickGridParamModel.cs" caret="329" fromTop="12" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="969" fromTop="7" />
-    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1250" fromTop="16" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="1424" fromTop="11" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="160" fromTop="5" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="2237" fromTop="10" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1827" fromTop="24" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1826" fromTop="24" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="3240" fromTop="18" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="2621" fromTop="21" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Scripts/f:slick.remoteProductModel.js" caret="2261" fromTop="14" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1958" fromTop="23" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1958" fromTop="32" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Extensions/f:XmlResult.cs" caret="193" fromTop="2" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Extensions/f:JsonpResult.cs" caret="2246" fromTop="39" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Extensions/f:JsonpResult.cs" caret="1668" fromTop="20" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Extensions/f:JsonpResult.cs" caret="288" fromTop="11" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1888" fromTop="23" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1637" fromTop="17" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Attributes/f:JsonpFilterAttribute.cs" caret="1595" fromTop="41" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Attributes/f:JsonpFilterAttribute.cs" caret="821" fromTop="22" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Infrastructure/d:Attributes/f:JsonpFilterAttribute.cs" caret="673" fromTop="17" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="1009" fromTop="3" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Controllers/f:GridController.cs" caret="463" fromTop="9" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="1124" fromTop="23" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="841" fromTop="32" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="1016" fromTop="9" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="1455" fromTop="21" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="1848" fromTop="23" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="4752" fromTop="16" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="3016" fromTop="31" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="2842" fromTop="19" />
+    <File id="8178D699-2229-48B2-8237-7CF56909A826/d:Views/d:Grid/f:SlickGrid.cshtml" caret="3004" fromTop="25" />
   </RecentEdits>
 </RecentFiles>
