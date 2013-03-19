@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MSMVC")]
+[assembly: AssemblyTitle("MvcApplication5")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MSMVC")]
+[assembly: AssemblyProduct("MvcApplication5")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4d18c309-5c53-403b-94f2-9e99df9a4243")]
+[assembly: Guid("69a7a25c-674f-4d54-ac6b-3304c0f87a9b")]
 
 // Version information for an assembly consists of the following four values:
 //
