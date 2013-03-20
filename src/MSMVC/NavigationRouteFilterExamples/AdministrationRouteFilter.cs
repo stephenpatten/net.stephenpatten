@@ -6,7 +6,7 @@ using NavigationRoutes;
 
 namespace NavigationRouteFilterExamples
 {
-    public class AdministrationRouteFilter :INavigationRouteFilter
+    public class AdministrationRouteFilter : INavigationRouteFilter
     {
         // an excercise for the reader would be to load the role name 
         // from your config file so this isn't compiled in, or add a constructor

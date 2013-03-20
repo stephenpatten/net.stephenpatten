@@ -10,6 +10,7 @@ namespace BootstrapMvcSample.Controllers
     public class HomeController : BootstrapBaseController
     {
         private static List<HomeInputModel> _models = ModelIntializer.CreateHomeInputModels();
+
         public ActionResult Index()
         {
            
