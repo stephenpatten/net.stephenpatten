@@ -79,3 +79,9 @@ namespace BootstrapMvcSample.Controllers
         }
     }
 }
+
+// https://github.com/erichexter/twitter.bootstrap.mvc
+// http://twitter.github.com/bootstrap/index.html
+// http://lostechies.com/erichexter/2012/11/20/twitter-bootstrap-mvc4-the-template-nuget-package-for-asp-net-mvc4-projects/
+// http://jameschambers.com/2013/02/bootstrapping-asp-net-mvcintroduction-to-twitter-bootstrap-mvc4/
+// http://oldblog.jameschambers.com/blog/bootstrap-asp.net-mvc-quickhits-installing-bootstrap
