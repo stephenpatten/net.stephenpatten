@@ -30,7 +30,10 @@ namespace BootstrapMvcSample
                   .AddChildRoute<ExampleLayoutsController>("Fluid", c => c.Fluid(), new NavigationRouteOptions{ HasBreakAfter = true})
                   .AddChildRoute<ExampleLayoutsController>("Sign In", c => c.SignIn());
 
-            routes.MapNavigationRoute<GridController>("Example Grids", c => c.Starter());
+            routes.MapNavigationRoute<GridController>("Example Grids", c => c.Starter())
+                .AddChildRoute<GridController>("jqGrid", c => c.JQGrid())
+                .AddChildRoute<GridController>("DataTables", c => c.DataTable())
+                .AddChildRoute<GridController>("SlickGrid", c => c.SlickGrid());
         }
     }
 }
