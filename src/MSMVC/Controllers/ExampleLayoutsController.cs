@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace BootstrapMvcSample.Controllers
 {
-    public class ExampleLayoutsController : Controller
+    public class ExampleLayoutsController : BootstrapBaseController
     {
         public ActionResult Starter()
         {

@@ -3,8 +3,13 @@ using BootstrapSupport;
 
 namespace BootstrapMvcSample.Controllers
 {
-    public class BootstrapBaseController: Controller
+    public class BootstrapBaseController : Controller
     {
+        public virtual ActionResult Null()
+        {
+            return View();
+        }
+
         public void Attention(string message)
         {
             TempData.Add(Alerts.ATTENTION, message);

@@ -203,6 +203,13 @@
     <Content Include="Views\ExampleLayouts\Narrow.cshtml" />
     <Content Include="Views\ExampleLayouts\Marketing.cshtml" />
     <Content Include="Views\ExampleLayouts\Fluid.cshtml" />
+    <Content Include="Views\Grid\Starter.cshtml" />
+    <Content Include="Views\Grid\JQGrid.cshtml" />
+    <Content Include="Views\Grid\DataTable.cshtml" />
+    <Content Include="Views\Grid\SlickGrid.cshtml" />
+    <Content Include="Views\DataBinding\AngularJS.cshtml" />
+    <Content Include="Views\DataBinding\KnockoutJS.cshtml" />
+    <Content Include="Views\shared\_Null.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
