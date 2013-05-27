@@ -25,19 +25,19 @@ namespace BootstrapMvcSample
             // class for more information.
             routes.MapNavigationRoute<HomeController>("Administration Menu", c => c.Admin(), "", new NavigationRouteOptions { HasBreakAfter = true, FilterToken = "admin"});
 
-            routes.MapNavigationRoute<ExampleLayoutsController>("Example Layouts", c => c.Null())
+            routes.MapNavigationRoute<ExampleLayoutsController>("Bootstrap Layouts", c => c.Null())
                   .AddChildRoute<ExampleLayoutsController>("Marketing", c => c.Marketing())
                   .AddChildRoute<ExampleLayoutsController>("Fluid", c => c.Fluid(), new NavigationRouteOptions{ HasBreakAfter = true})
                   .AddChildRoute<ExampleLayoutsController>("Sign In", c => c.SignIn());
 
-            routes.MapNavigationRoute<GridController>("Example Grids", c => c.Null())
+            routes.MapNavigationRoute<GridController>("JS Grids", c => c.Null())
                 .AddChildRoute<GridController>("jqGrid", c => c.JQGrid())
                 .AddChildRoute<GridController>("DataTables", c => c.DataTable())
                 .AddChildRoute<GridController>("SlickGrid", c => c.SlickGrid());
 
-            routes.MapNavigationRoute<DataBindingController>("Example Frameworks", c => c.Null())
-                .AddChildRoute<DataBindingController>("AngularJS", c => c.AngularJS())
-                .AddChildRoute<DataBindingController>("KnockoutJS", c => c.KnockoutJS());
+            routes.MapNavigationRoute<FrameworkController>("JS Frameworks", c => c.Null())
+                .AddChildRoute<FrameworkController>("AngularJS", c => c.AngularJS())
+                .AddChildRoute<FrameworkController>("KnockoutJS", c => c.KnockoutJS());
         }
     }
 }
